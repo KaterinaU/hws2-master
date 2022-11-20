@@ -17,7 +17,7 @@ function Affair(props: AffairPropsType) {
     const nameClass = s.name + ' ' + s2[props.affair.priority]
     const buttonClass = s.closeButton + ' ' + s2[props.affair.priority]
     const affairClass = s.affair + ' ' + s2[props.affair.priority]
-      console.log("onClick")
+
     return (
         <div
             id={'hw2-affair-' + props.affair._id}
