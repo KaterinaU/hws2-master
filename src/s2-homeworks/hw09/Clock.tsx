@@ -13,15 +13,15 @@ function Clock() {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
 
-        const intervalId: number = window.setInterval(()=>{
-            setDate(new Date);
-        }, 1000);
-        setTimerId(intervalId)
+       setTimerId(window.setInterval(()=>{
+           setDate(new Date);
+       }, 1000))
 
     }
 
     const stop = () => {
         clearInterval(timerId)
+        setTimerId(undefined)
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
     }
 
@@ -40,12 +40,12 @@ function Clock() {
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
 
-    const stringDay = new Intl.DateTimeFormat("en-US", {weekday: "long"}).format(date)|| <br/>
+    const stringDay = new Intl.DateTimeFormat("en-US", {weekday: "long"}).format(new Date())|| <br/>
    // const stringDay = || <br/>
 
 
     // пишут студенты
-    const stringMonth = new Intl.DateTimeFormat("en-US", {month: "long"}).format(date) || <br/> // пишут студенты
+    const stringMonth = new Intl.DateTimeFormat("en-US", {month: "long"}).format(new Date()) || <br/> // пишут студенты
 
     return (
         <div className={s.clock}>
