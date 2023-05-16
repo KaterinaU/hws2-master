@@ -1,5 +1,5 @@
 
-type stateType = {
+export type stateType = {
     themeId: number
 }
 
