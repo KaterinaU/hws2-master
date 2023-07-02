@@ -41,7 +41,7 @@ const HW14 = () => {
                 }
                 else {
                     setLoading(false)
-                    setTechs(['NO MATCHES'])
+                    setTechs( ['NO MATCHES'])
                 }
 
                 // сохранить пришедшие данные
