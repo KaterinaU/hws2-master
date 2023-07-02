@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import s2 from '../../s1-main/App.module.css'
+import s2 from '../hw01/s1-main/App.module.css'
 import s from './HW15.module.css'
 import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
@@ -51,22 +51,27 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
-
+                setLoading(false)
                 // сохранить пришедшие данные
-
-                //
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
+        setPage(newPage)
+        setCount(newCount)
         // setPage(
         // setCount(
 
         // sendQuery(
+        sendQuery({page: newPage.toString(), count: newCount.toString()})
         // setSearchParams(
+        setSearchParams({page: newPage.toString(), count: newCount.toString()})
+
 
         //
     }
@@ -74,11 +79,15 @@ const HW15 = () => {
     const onChangeSort = (newSort: string) => {
         // делает студент
 
+        setSort(newSort)
+        searchParams.set("page", '1')
         // setSort(
         // setPage(1) // при сортировке сбрасывать на 1 страницу
 
         // sendQuery(
+        sendQuery({count: count, page: 1, sort: newSort})
         // setSearchParams(
+        setSearchParams({page: page.toString(), count: count.toString()})
 
         //
     }
